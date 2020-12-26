@@ -1,0 +1,58 @@
+HELP.md
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### VS Code ###
+.vscode/
+
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+src/js/node_modules
+src/js/.pnp
+src/js/.pnp.js
+src/js/public
+
+# testing
+src/js/coverage
+
+# production
+src/js/build
+
+# misc
+src/js/.DS_Store
+src/js/.env.local
+src/js/.env.development.local
+src/js/.env.test.local
+src/js/.env.production.local
+
+src/js/npm-debug.log*
+src/js/yarn-debug.log*
+src/js/yarn-error.log*
