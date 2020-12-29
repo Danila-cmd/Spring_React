@@ -1,5 +1,6 @@
 package com.danila.demo.student;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
@@ -8,22 +9,15 @@ import java.util.UUID;
 
 @Service
 public class StudentService {
-    public List<Student> getAllStudents(){
-        return List.of(
-                new Student(
-                        UUID.randomUUID(),
-                        "James",
-                        "Bond",
-                        "jamesbond@gmail.com",
-                        Student.Gender.MALE
-                ),
-                new Student(
-                        UUID.randomUUID(),
-                        "Elisa",
-                        "Montana",
-                        "elisaMontana@gmail.com",
-                        Student.Gender.FEMALE
-                )
-        );
+
+    private final StudentDataAccessService studentDataAccessService;
+
+    @Autowired
+    public StudentService(StudentDataAccessService studentDataAccessService) {
+        this.studentDataAccessService = studentDataAccessService;
+    }
+
+    public List<Student> getAllStudents() {
+        return studentDataAccessService.selectAllStudents();
     }
 }
