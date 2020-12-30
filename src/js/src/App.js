@@ -10,6 +10,7 @@ import {
     Modal
 } from 'antd';
 import {LoadingOutlined} from '@ant-design/icons';
+import AddStudentFrom from './forms/AddStudentForm'
 
 const getIndicatorIcon = () => <LoadingOutlined style={{fontSize: 24}} spin/>;
 
@@ -109,7 +110,7 @@ class App extends Component {
                         onCancel={this.closeAddStudentModal}
                         width={1000}
                     >
-                        <h1>Hello Modal with Antd</h1>
+                        <AddStudentFrom/>
                     </Modal>
                     <Footer
                         numberOfStudents={students.length}
