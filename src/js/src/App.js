@@ -99,6 +99,7 @@ class App extends Component {
             return (
                 <Container>
                     <Table
+                        style={{marginBottom: '100px'}}
                         dataSource={students}
                         columns={columns}
                         pagination={false}
