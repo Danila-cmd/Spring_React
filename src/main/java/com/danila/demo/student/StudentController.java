@@ -1,8 +1,10 @@
 package com.danila.demo.student;
 
+import com.danila.demo.exception.ApiRequestException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 import java.util.UUID;
 
@@ -19,12 +21,12 @@ public class StudentController {
 
     @GetMapping
     public List<Student> getAllStudents() {
-        throw new IllegalStateException("Oops!!!");
+        throw new ApiRequestException("Oops cannot get all students!!!");
 //        return studentService.getAllStudents();
     }
 
     @PostMapping
-    public void addNewStudent(@RequestBody Student student) {
+    public void addNewStudent(@RequestBody @Valid Student student) {
         studentService.addNewStudent(student);
     }
 }

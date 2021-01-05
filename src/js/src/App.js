@@ -49,7 +49,7 @@ class App extends Component {
                 const message = error.error.message
                 const description = error.error.error
                 errorNotification(message, description)
-                console.log(message)
+                console.log(error.error)
                 this.setState({
                     isFetching: false
                 })
