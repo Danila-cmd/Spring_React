@@ -33,6 +33,15 @@ public class StudentDataAccessService {
                 student.getGender().name().toUpperCase()
         );
     }
+    @SuppressWarnings("ConstantConditions")
+    boolean isEmailTaken(String email) {
+        String sql = "SELECT EXISTS (SELECT 1 FROM student WHERE email = ? )";
+        return jdbcTemplate.queryForObject(
+                sql,
+                new Object[]{email},
+                ((resultSet, i) -> resultSet.getBoolean(1))
+        );
+    }
 
     private RowMapper<Student> mapStudentFromDb() {
         return (resultSet, i) -> {

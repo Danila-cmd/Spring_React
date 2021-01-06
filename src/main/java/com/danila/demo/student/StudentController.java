@@ -21,8 +21,10 @@ public class StudentController {
 
     @GetMapping
     public List<Student> getAllStudents() {
-        throw new ApiRequestException("Oops cannot get all students!!!");
-//        return studentService.getAllStudents();
+        if(studentService.getAllStudents().isEmpty()){
+            throw new ApiRequestException("Oops cannot get all students!!!");
+        }
+        return studentService.getAllStudents();
     }
 
     @PostMapping

@@ -74,6 +74,11 @@ class App extends Component {
                             this.closeAddStudentModal();
                             this.fetchStudents()
                         }}
+                        onFailure={(error) => {
+                            const message = error.error.message
+                            const description = error.error.httpStatus
+                            errorNotification(message, description)
+                        }}
                     />
                 </Modal>
                 <Footer
@@ -138,7 +143,7 @@ class App extends Component {
                         columns={columns}
                         pagination={false}
                         rowKey='studentId'/>
-                    {commonElements}
+                    {commonElements()}
                 </Container>
             );
         }
